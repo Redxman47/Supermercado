@@ -14,6 +14,14 @@ public class Compra {
         this.valorTotal = valorTotal;
         this.listaComprarProductos = listaComprarProductos;
     }
+
+    public Compra(String codigoCompra, LocalDate fechaCompra, MetodoPago metodoPago){
+        this.codigo = codigoCompra;
+        this.fecha = fechaCompra;
+        this.metodoPago = metodoPago;
+
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -41,8 +49,9 @@ public class Compra {
     public void setListaComprarProductos(List<Producto> listaComprarProductos) {
         this.listaComprarProductos = listaComprarProductos;
     }
-    public void agregarProducto(Producto producto) {
+    public boolean agregarProducto(Producto producto) {
         listaComprarProductos.add(producto);
+        return false;
     }
     public double calcularValorTotal() {
         double valorTotal = 0;
