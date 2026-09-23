@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 public class Compra {
     private String codigo;
@@ -36,30 +37,40 @@ public class Compra {
     public double getValorTotal() {
         return valorTotal;
     }
-    public List<Producto> getListaComprarProductos() {
-        return listaComprarProductos;
+    public List<Producto> getListaCompraProductos() {
+        return listaCompraProductos;
     }
-    public void setListaComprarProductos(List<Producto> listaComprarProductos) {
-        this.listaComprarProductos = listaComprarProductos;
+    public void setListaCompraProductos(List<Producto> listaCompraProductos) {
+        this.listaCompraProductos = listaCompraProductos;
     }
     public boolean agregarProducto(Producto producto) {
-        listaComprarProductos.add(producto);
+        listaCompraProductos.add(producto);
         return false;
     }
     public double calcularValorTotal() {
         double valorTotal = 0;
         {
-            for (Producto producto : listaComprarProductos) {
+            for (Producto producto : listaCompraProductos) {
                 valorTotal += producto.getPrecioUnitario();
             }
         }
         return valorTotal;
     }
     public void confirmarCompra() {
-        for (Producto producto : listaComprarProductos) {
+        for (Producto producto : listaCompraProductos) {
             producto.validarDisponibilidad(1);
         }
         this.valorTotal = calcularValorTotal();
         System.out.println("Compra confirmada. Valor total: " + this.valorTotal + "");
+    }
+    @Override
+    public String toString() {
+        return "Compra{" +
+                "codigo='" + codigo + '\'' +
+                ", fecha=" + fecha +
+                ", metodoPago=" + metodoPago +
+                ", valorTotal=" + valorTotal +
+                ", listaCompraProductos=" + listaCompraProductos +
+                '}';
     }
 }
