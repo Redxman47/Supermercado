@@ -5,21 +5,14 @@ public class Compra {
     private LocalDate fecha;
     private MetodoPago metodoPago;
     private double valorTotal;
-    private List<Producto> listaComprarProductos;
+    private List<Producto> listaCompraProductos;
 
-    public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, double valorTotal, List<Producto> listaComprarProductos) {
+    public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, double valorTotal, List<Producto> listaCompraProductos) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.metodoPago = metodoPago;
         this.valorTotal = valorTotal;
-        this.listaComprarProductos = listaComprarProductos;
-    }
-
-    public Compra(String codigoCompra, LocalDate fechaCompra, MetodoPago metodoPago){
-        this.codigo = codigoCompra;
-        this.fecha = fechaCompra;
-        this.metodoPago = metodoPago;
-
+        this.listaCompraProductos = new ArrayList<>();
     }
 
     public String getCodigo() {
