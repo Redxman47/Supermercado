@@ -13,7 +13,7 @@
             this.codigo = codigo;
             this.fecha = fecha;
             this.metodoPago = metodoPago;
-            this.valorTotal = valorTotal;
+            this.valorTotal = 0;
             this.listaCompraProductos = new ArrayList<>();
         }
     
@@ -46,7 +46,17 @@
             this.listaCompraProductos = listaComprarProductos;
         }
         public boolean agregarProducto(Producto producto) {
-            listaCompraProductos.add(producto);
+            //Unidades de este producto que ya estan en la compra
+            int unidades = 0;
+            for (Producto p : listaCompraProductos) {
+                if (p.getCodigo().equals(producto.getCodigo())) {
+                    unidades++;
+                }
+            }
+            if (producto.validarDisponibilidad(unidades + 1)) {
+                listaCompraProductos.add(producto);
+                return true;
+            }
             return false;
         }
         public double calcularValorTotal() {
@@ -60,10 +70,9 @@
         }
         public void confirmarCompra() {
             for (Producto producto : listaCompraProductos) {
-                producto.validarDisponibilidad(1);
+                producto.actualizarStock(1);
             }
             this.valorTotal = calcularValorTotal();
-            System.out.println("Compra confirmada. Valor total: " + this.valorTotal + "");
         }
         @Override
         public String toString() {

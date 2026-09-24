@@ -3,15 +3,13 @@
     public class Cliente {
         private String nombreCompleto;
         private String documento;
-        private String direccion;
         private String telefono;
         private String correo;
         private List<Compra> listaCompras;
-    
-        public Cliente(String nombreCompleto,String documento, String direccion, String telefono) {
+
+        public Cliente(String nombreCompleto,String documento, String telefono, String correo) {
             this.nombreCompleto = nombreCompleto;
             this.documento = documento;
-            this.direccion = direccion;
             this.telefono = telefono;
             this.correo = correo;
             this.listaCompras = new ArrayList<>();
@@ -27,12 +25,6 @@
         }
         public void setDocumento(String documento) {
             this.documento = documento;
-        }
-        public String getDireccion() {
-            return direccion;
-        }
-        public void setDireccion(String direccion) {
-            this.direccion = direccion;
         }
         public String getTelefono() {
             return telefono;
@@ -61,7 +53,6 @@
             return "Cliente{" +
                     "nombreCompleto='" + nombreCompleto + '\'' +
                     ", documento='" + documento + '\'' +
-                    ", direccion='" + direccion + '\'' +
                     ", telefono='" + telefono + '\'' +
                     ", correo='" + correo + '\'' +
                     ", listaCompras=" + listaCompras +

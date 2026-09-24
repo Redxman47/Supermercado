@@ -219,9 +219,7 @@ public class Aplicacion {
 
                     MetodoPago metodoPago=pedirMetodoPago(sc);
 
-                    String codigo = "";
-                    LocalDate fecha = null;
-                    Compra compra=new Compra(codigo, fecha, metodoPago);
+                    Compra compra=new Compra(codigoCompra, fechaCompra, metodoPago);
 
                     //Seleccion de productos: cada vez que se ingresa un codigo se agrega una unidad
                     String codigoSeleccionado;
@@ -305,11 +303,37 @@ public class Aplicacion {
     }
 
     private MetodoPago pedirMetodoPago(Scanner sc) {
-        return null;
+        System.out.println("Seleccione el metodo de pago:");
+        System.out.println("1. Tarjeta");
+        System.out.println("2. Transferencia bancaria");
+        System.out.println("3. Efectivo");
+        int opcionMetodoPago=sc.nextInt();
+        sc.nextLine();
+
+        return switch(opcionMetodoPago){
+            case 1 -> MetodoPago.TARJETA;
+            case 2 -> MetodoPago.TRANSFERENCIA;
+            case 3 -> MetodoPago.EFECTIVO;
+            default -> null;
+        };
     }
 
     private Categoria pedirCategoria(Scanner sc) {
-        return null;
+        System.out.println("Seleccione la categoria del producto:");
+        System.out.println("1. Alimentos");
+        System.out.println("2. Bebidas");
+        System.out.println("3. Productos de aseo");
+        System.out.println("4. Cuidado personal");
+        int opcionCategoria=sc.nextInt();
+        sc.nextLine();
+
+        return switch(opcionCategoria){
+            case 1 -> Categoria.ALIMENTOS;
+            case 2 -> Categoria.BEBIDAS;
+            case 3 -> Categoria.PRODUCTOS_ASEO;
+            case 4 -> Categoria.CUIDADO_PERSONAL;
+            default -> null;
+        };
     }
 }
 

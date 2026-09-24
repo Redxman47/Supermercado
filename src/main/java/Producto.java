@@ -42,15 +42,11 @@ public class Producto {
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
-    public void validarDisponibilidad(int cantidad) {
-        if (cantidad <= cantidadDisponible) {
-            cantidadDisponible -= cantidad;
-        } else {
-            throw new IllegalArgumentException("No hay suficiente stock disponible.");
-        }
+    public boolean validarDisponibilidad(int cantidad) {
+        return cantidad <= cantidadDisponible;
     }
     public void actualizarStock(int cantidad) {
-        cantidadDisponible += cantidad;
+        cantidadDisponible -= cantidad;
     }
 }
 
