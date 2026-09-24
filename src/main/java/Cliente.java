@@ -7,7 +7,7 @@
         private String correo;
         private List<Compra> listaCompras;
 
-        public Cliente(String nombreCompleto,String documento, String telefono, String correo, List<Compra> listaCompras) {
+        public Cliente(String nombreCompleto,String documento, String telefono, String correo) {
             this.nombreCompleto = nombreCompleto;
             this.documento = documento;
             this.telefono = telefono;
