@@ -219,7 +219,9 @@ public class Aplicacion {
 
                     MetodoPago metodoPago=pedirMetodoPago(sc);
 
-                    Compra compra=new Compra(codigoCompra, fechaCompra, metodoPago);
+                    String codigo = "";
+                    LocalDate fecha = null;
+                    Compra compra=new Compra(codigo, fecha, metodoPago);
 
                     //Seleccion de productos: cada vez que se ingresa un codigo se agrega una unidad
                     String codigoSeleccionado;
@@ -300,6 +302,10 @@ public class Aplicacion {
 
         }while(opcion!=0);
         sc.close();
+    }
+
+    private MetodoPago pedirMetodoPago(Scanner sc) {
+        return null;
     }
 
     private Categoria pedirCategoria(Scanner sc) {

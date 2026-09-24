@@ -16,6 +16,7 @@ public class Compra {
         this.listaCompraProductos = new ArrayList<>();
     }
 
+
     public String getCodigo() {
         return codigo;
     }
@@ -40,8 +41,8 @@ public class Compra {
     public List<Producto> getListaCompraProductos() {
         return listaCompraProductos;
     }
-    public void setListaCompraProductos(List<Producto> listaCompraProductos) {
-        this.listaCompraProductos = listaCompraProductos;
+    public void setListaCompraProductos(List<Producto> listaComprarProductos) {
+        this.listaCompraProductos = listaComprarProductos;
     }
     public boolean agregarProducto(Producto producto) {
         listaCompraProductos.add(producto);
@@ -62,15 +63,5 @@ public class Compra {
         }
         this.valorTotal = calcularValorTotal();
         System.out.println("Compra confirmada. Valor total: " + this.valorTotal + "");
-    }
-    @Override
-    public String toString() {
-        return "Compra{" +
-                "codigo='" + codigo + '\'' +
-                ", fecha=" + fecha +
-                ", metodoPago=" + metodoPago +
-                ", valorTotal=" + valorTotal +
-                ", listaCompraProductos=" + listaCompraProductos +
-                '}';
     }
 }
