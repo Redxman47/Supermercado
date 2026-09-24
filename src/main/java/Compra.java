@@ -1,4 +1,4 @@
-    import java.time.LocalDate;
+   import java.time.LocalDate;
     import java.util.ArrayList;
     import java.util.List;
     public class Compra {
@@ -9,11 +9,11 @@
         private List<Producto> listaCompraProductos;
     
     
-        public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, List<Producto> listaCompraProductos) {
+            public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago) {
             this.codigo = codigo;
             this.fecha = fecha;
             this.metodoPago = metodoPago;
-            this.valorTotal = valorTotal;
+            this.valorTotal = 0;
             this.listaCompraProductos = new ArrayList<>();
         }
     
@@ -46,18 +46,11 @@
             this.listaCompraProductos = listaComprarProductos;
         }
         public boolean agregarProducto(Producto producto) {
-            //Unidades de este producto que ya estan en la compra
-            int unidades = 0;
-            for (Producto p : listaCompraProductos) {
-                if (p.getCodigo().equals(producto.getCodigo())) {
-                    unidades++;
-                }
+            if (producto == null) {
+                return false;
             }
-            if (producto.validarDisponibilidad(unidades + 1)) {
-                listaCompraProductos.add(producto);
-                return true;
-            }
-            return false;
+            listaCompraProductos.add(producto);
+            return true;
         }
         public double calcularValorTotal() {
             double valorTotal = 0;
@@ -70,9 +63,10 @@
         }
         public void confirmarCompra() {
             for (Producto producto : listaCompraProductos) {
-                producto.actualizarStock(1);
+                producto.validarDisponibilidad(1);
             }
             this.valorTotal = calcularValorTotal();
+            System.out.println("Compra confirmada. Valor total: " + this.valorTotal + "");
         }
         @Override
         public String toString() {
@@ -85,3 +79,4 @@
                     '}';
         }
     }
+
