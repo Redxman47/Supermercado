@@ -9,11 +9,11 @@
         private List<Producto> listaCompraProductos;
     
     
-        public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago) {
+        public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, List<Producto> listaCompraProductos) {
             this.codigo = codigo;
             this.fecha = fecha;
             this.metodoPago = metodoPago;
-            this.valorTotal = 0;
+            this.valorTotal = valorTotal;
             this.listaCompraProductos = new ArrayList<>();
         }
     
