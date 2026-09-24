@@ -8,7 +8,8 @@ public class Compra {
     private double valorTotal;
     private List<Producto> listaCompraProductos;
 
-    public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago, double valorTotal, List<Producto> listaCompraProductos) {
+
+    public Compra(String codigo, LocalDate fecha, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.metodoPago = metodoPago;

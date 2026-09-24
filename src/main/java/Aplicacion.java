@@ -272,10 +272,10 @@ public class Aplicacion {
                     Cliente clienteConsulta=supermercado.buscarCliente(documentoConsulta);
                     if(clienteConsulta==null){
                         System.out.println("No existe un cliente con ese documento.");
-                    }else if(clienteConsulta.getListaClienteCompras().isEmpty()){
+                    }else if(clienteConsulta.getListaCompras().isEmpty()){
                         System.out.println("El cliente no tiene compras registradas.");
                     }else{
-                        for(Compra c:clienteConsulta.getListaClienteCompras()){
+                        for(Compra c:clienteConsulta.getListaCompras()){
                             System.out.println(c);
                         }
                     }
