@@ -48,6 +48,16 @@ public class Producto {
     public void actualizarStock(int cantidad) {
         cantidadDisponible -= cantidad;
     }
+     @Override
+      public String toString() {
+          return "Producto{" +
+                  "codigo='" + codigo + '\'' +
+                  ", nombre='" + nombre + '\'' +
+                  ", categoria=" + categoria +
+                  ", precioUnitario=" + precioUnitario +
+                  ", cantidadDisponible=" + cantidadDisponible +
+                  '}';
+      }
 }
 
 
